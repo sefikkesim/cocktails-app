@@ -58,7 +58,7 @@ const AppContextProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [searchTerm]);
   const values = {
     loading,
     searchTerm,

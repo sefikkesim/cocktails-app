@@ -1,13 +1,29 @@
-import React from 'react'
-import { useAppContext } from '../context'
+import React,{useRef} from "react";
+import { useAppContext } from "../context";
 
 const SearchForm = () => {
-  const {SetSearchTerm,searchTerm} = useAppContext()
-  return (
-    <div>
-      <h2>search form component</h2>
-    </div>
-  )
-}
+  const { setSearchTerm, searchTerm } = useAppContext();
+  const searchValue = useRef("");
 
-export default SearchForm
+  const searchCocktails = () => {
+     setSearchTerm(searchValue.current.value);
+  };
+  console.log(searchTerm);
+  return (
+    <section className="section search">
+      <form className="search-form">
+        <div className="form-control">
+          <label htmlFor="name"> Search Your Favorite Coctail</label>
+          <input
+            type="text"
+            id="name"
+            ref={searchValue}
+            onChange={searchCocktails}
+          />
+        </div>
+      </form>
+    </section>
+  );
+};
+
+export default SearchForm;
