@@ -8,10 +8,13 @@ const SearchForm = () => {
   const searchCocktails = () => {
      setSearchTerm(searchValue.current.value);
   };
+  React.useEffect(()=>{
+    searchValue.current.focus()
+  },[])
   console.log(searchTerm);
   return (
     <section className="section search">
-      <form className="search-form">
+      <form className="search-form" onSubmit={(e)=> e.preventDefault()}>
         <div className="form-control">
           <label htmlFor="name"> Search Your Favorite Coctail</label>
           <input

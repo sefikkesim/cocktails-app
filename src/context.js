@@ -23,7 +23,7 @@ const useAppContext = () => {
 
 const AppContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("a");
+  const [searchTerm, setSearchTerm] = useState("");
   const [cocktails, setCocktails] = useState([]);
 
   const fetchData = async () => {
